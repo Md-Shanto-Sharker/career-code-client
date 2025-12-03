@@ -3,6 +3,7 @@ import RootLayouts from "../layouts/RootLayouts";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import SignIn from "../pages/SignIn/SignIn";
+// import HotJobs from "../pages/Home/HotJobs";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -13,4 +14,9 @@ export const router = createBrowserRouter([
       { path: "/signin", Component: SignIn },
     ],
   },
+  // {
+  //   path: "",
+  //   loader: () => fetch("http://localhost:3000/jobs"),
+  //   Component: HotJobs,
+  // },
 ]);

@@ -5,7 +5,7 @@ import { Navigate } from "react-router";
 const PrivateRoutes = ({ children }) => {
   const { user } = use(AuthContext);
   if (!user) {
-    <Navigate to="/signIn"></Navigate>;
+    return <Navigate to="/signin"></Navigate>;
   }
   return children;
 };

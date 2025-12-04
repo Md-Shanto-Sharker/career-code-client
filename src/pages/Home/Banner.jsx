@@ -10,21 +10,20 @@ const Banner = () => {
           <motion.img
             src={team1}
             animate={{
-              y: [100, 150,100],
-            
+              y: [100, 150, 100],
+
               transition: { duration: 4, repeat: Infinity },
             }}
-            className="max-w-sm  border-s-8 border-b-8 border-blue-600 rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+            className="max-w-sm  md:w-96  border-s-8 border-b-8 border-blue-600 rounded-t-[40px] rounded-br-[40px] shadow-2xl"
           />
-
 
           <motion.img
             src={team2}
             animate={{
-              x: [100, 150,100],
-              transition: { duration: 10, delay:5, repeat: Infinity },
+              x: [100, 150, 100],
+              transition: { duration: 10, delay: 5, repeat: Infinity },
             }}
-            className="max-w-sm  border-s-8 border-b-8 border-blue-600 rounded-t-[40px] rounded-br-[40px] shadow-2xl"
+            className="max-w-sm   md:w-96  border-s-8 border-b-8 border-blue-600 rounded-t-[40px] rounded-br-[40px] shadow-2xl"
           />
         </div>
 

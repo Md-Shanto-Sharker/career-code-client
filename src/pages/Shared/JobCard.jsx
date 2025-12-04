@@ -1,27 +1,57 @@
 import React from "react";
+import { FiMapPin } from "react-icons/fi";
+import { Link } from "react-router";
 
 const JobCard = ({ job }) => {
-  const { title, location, jobType, category, description, company } = job;
+  const {
+    title,
+    _id,
+    location,
+    salaryRange,
+    description,
+    requirements,
+    company,
+    company_logo,
+  } = job;
   return (
     <div className="card bg-base-100  shadow-sm">
-      <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
-        />
-      </figure>
+      <div className="flex  gap-3">
+        <figure>
+          <img className="w-16" src={company_logo} />
+        </figure>
+
+        <div>
+          <h1 className="text-3xl">{company}</h1>
+          <div className="flex gap-2 items-center">
+            <FiMapPin />
+            <p>{location}</p>
+          </div>
+        </div>
+      </div>
+
       <div className="card-body">
         <h2 className="card-title">
-         {title}
+          {title}
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
+          Salary :{salaryRange.min}-{salaryRange.max}
+          {salaryRange.currency}
         </p>
+        <p>{description}</p>
+        <div className="card-actions">
+          {requirements.map((req, index) => (
+            <div key={index} className="badge badge-outline">
+              {req}
+            </div>
+          ))}
+
+          {/* <div className="badge badge-outline">Products</div> */}
+        </div>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <Link to={`jobs/${_id}`}>
+            <button className="btn btn-primary">Details</button>
+          </Link>
         </div>
       </div>
     </div>

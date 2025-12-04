@@ -7,7 +7,7 @@ const HotJobs = ({ jobsPromise }) => {
 
   return (
     <div>
-      <h2 className="text-4xl">Hot Jobs of the Day</h2>
+      <h2 className="text-4xl text-center mb-8">Hot Jobs of the Day</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
         {jobs.map((job) => (

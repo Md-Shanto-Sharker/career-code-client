@@ -3,6 +3,7 @@ import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router";
 
 const JobCard = ({ job }) => {
+  
   const {
     title,
     _id,

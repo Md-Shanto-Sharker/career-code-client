@@ -5,23 +5,29 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 const NavBar = () => {
   const { user, SignOutUser } = use(AuthContext);
   const handleSignOut = () => {
-    SignOutUser().then(() => {
-      alert("SignOut Successfully");
-    }).catch((error) => {
-      alert("Error SignOut", error.message);
-    });
+    SignOutUser()
+      .then(() => {
+        alert("SignOut Successfully");
+      })
+      .catch((error) => {
+        alert("Error SignOut", error.message);
+      });
   };
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+
+
+      {user && (
+        <>
+          <li>
+            <NavLink to="/myApplications">My Applications</NavLink>
+          </li>
+        </>
+
+      )}
     </>
   );
   return (

@@ -2,8 +2,15 @@ import React, { use } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Lottie from "lottie-react";
 import signInLottie from "../../assets/lotties/SignIn.json";
+import { useLocation, useNavigate } from "react-router";
+import SocialLogin from "../Shared/SocialLogin";
 const SignIn = () => {
   const { SignInUser } = use(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || "/";
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,6 +22,7 @@ const SignIn = () => {
     SignInUser(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +64,8 @@ const SignIn = () => {
                 <button className="btn btn-neutral mt-4">SignIn</button>
               </fieldset>
             </form>
-            <button className="btn bg-white text-black border-[#e5e5e5]">
+            <SocialLogin from={from}></SocialLogin>
+            {/* <button className="btn bg-white text-black border-[#e5e5e5]">
               <svg
                 aria-label="Google logo"
                 width="16"
@@ -85,7 +94,7 @@ const SignIn = () => {
                 </g>
               </svg>
               Login with Google
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

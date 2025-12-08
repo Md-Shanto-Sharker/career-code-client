@@ -39,6 +39,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/myPostedJobs",
+        element: (
+          <PrivateRoute>
+            <MyPostedJobs></MyPostedJobs>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "myApplications",
         element: (
           <PrivateRoute>

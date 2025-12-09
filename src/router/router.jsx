@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       {
         path: "/jobs/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(`https://career-code-server-fawn.vercel.app/jobs/${params.id}`),
         Component: JobDetails,
       },
       {

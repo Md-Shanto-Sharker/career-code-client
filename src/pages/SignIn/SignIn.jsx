@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import signInLottie from "../../assets/lotties/SignIn.json";
 import { useLocation, useNavigate } from "react-router";
 import SocialLogin from "../Shared/SocialLogin";
+import Swal from "sweetalert2";
 const SignIn = () => {
   const { SignInUser } = use(AuthContext);
 
@@ -22,15 +23,40 @@ const SignIn = () => {
     SignInUser(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
-        navigate(from);
+        Swal.fire({
+          title: "<strong>Welcome Back!</strong>",
+          html: `<p>You are signed in as <b>${email}</b></p>`,
+          icon: "success",
+          showConfirmButton: true,
+          confirmButtonText: "Go to Dashboard",
+          timer: 2500,
+          timerProgressBar: true,
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          color: "#ffffff",
+          iconColor: "#ffdd57",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+          customClass: {
+            popup: "rounded-3xl shadow-2xl border border-white/20",
+            confirmButton:
+              "bg-yellow-400 text-gray-900 px-6 py-2 rounded-xl font-semibold hover:bg-yellow-500",
+          },
+        }).then(() => {
+          navigate(from);
+        });
       })
+
       .catch((error) => {
         console.log(error);
       });
   };
 
   return (
-       <div className="min-h-screen flex items-center justify-center relative bg-linear-to-br from-purple-700 via-indigo-600 to-pink-500 overflow-hidden p-4">
+    <div className="min-h-screen flex items-center justify-center relative bg-linear-to-br from-purple-700 via-indigo-600 to-pink-500 overflow-hidden p-4">
       {/* Blurred background overlay */}
       <div className="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
 
@@ -93,6 +119,5 @@ const SignIn = () => {
     </div>
   );
 };
-  
 
 export default SignIn;

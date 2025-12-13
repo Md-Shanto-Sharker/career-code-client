@@ -25,10 +25,7 @@ const JobApply = () => {
     };
 
     axios
-      .post(
-        "https://career-code-server-fawn.vercel.app/applications",
-        application
-      )
+      .post("http://localhost:3000/applications", application)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
